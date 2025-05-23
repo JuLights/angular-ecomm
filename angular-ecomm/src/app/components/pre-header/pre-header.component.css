@@ -1,0 +1,20 @@
+﻿.pre-header{
+  margin: 0.2rem 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  background-color: coral;
+}
+
+.header-button {
+  background-color: transparent;
+  border: 1px solid crimson;
+  cursor: pointer;
+}
+
+.header-span {
+  font-size: 1.0rem;
+  flex-grow: 1;
+  text-align: center;
+}

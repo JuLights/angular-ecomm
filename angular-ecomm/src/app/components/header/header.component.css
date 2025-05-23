@@ -1,0 +1,94 @@
+﻿/* Header Container */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo Styling */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ff6f61;
+}
+
+/* Auth Section (Login & Sign Up) */
+.auth-container {
+  display: flex;
+  gap: 15px;
+}
+
+.login-btn, .signup-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.login-btn {
+  background-color: #ff6f61;
+  color: white;
+}
+
+.login-btn:hover {
+  background-color: #ff3b2e;
+}
+
+.signup-btn {
+  background-color: transparent;
+  border: 2px solid #ff6f61;
+  color: #ff6f61;
+}
+
+.signup-btn:hover {
+  background-color: #ff6f61;
+  color: white;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
+
+  .auth-container {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
