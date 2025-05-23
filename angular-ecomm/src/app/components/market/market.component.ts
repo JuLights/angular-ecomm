@@ -1,65 +1,50 @@
-import {Component, signal} from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
 import {Product} from '../../models/product.model';
 import {ItemComponent} from '../item/item.component';
-import {NgForOf, NgIf} from '@angular/common';
+import { NgIf} from '@angular/common';
+import {ProductApiService} from '../../services/product-api.service';
 // Assuming a Product model is used
 
 @Component({
   selector: 'app-market',
   imports: [
     ItemComponent,
-    NgForOf,
     NgIf
   ],
   templateUrl: 'market.component.html',
   styleUrls: ['market.component.css'],
 })
 export class MarketComponent {
+  constructor() {
+
+    this.productApiService.getProducts().subscribe((prods)=>{
+      this.products.set(prods);
+    });
+
+  }
+
+  productApiService = inject(ProductApiService);
+
   isMenuOpen = signal<boolean>(false);
 
   currentPage: number = 1;
 
-
-  products: Product[] = [
-    {
-      id: 1,
-      title: 'Product 1',
-      price: 100,
-      category: 'Electronics',
-      description: 'Description of Product 1',
-      image: 'https://via.placeholder.com/150',
-    },
-    {
-      id: 2,
-      title: 'Product 2',
-      price: 200,
-      category: 'Fashion',
-      description: 'Description of Product 2',
-      image: 'https://via.placeholder.com/150',
-    },
-    {
-      id: 3,
-      title: 'Product 3',
-      price: 300,
-      category: 'Fashion',
-      description: 'Description of Product 3',
-      image: 'https://via.placeholder.com/150',
-    }
-  ]; // Array of product data
+  products = signal<Product[]>([]);
 
   categories = [
     { name: 'Electronics', open: false, subcategories: ['Phones', 'Laptops', 'Headphones'] },
     { name: 'Fashion', open: false, subcategories: ['Men', 'Women', 'Kids'] },
     { name: 'Home & Kitchen', open: false, subcategories: ['Furniture', 'Appliances', 'Decor'] },
   ];
+
   totalPages: number = 5; // Assume a total of 5 pages for pagination
 
-  openMenu() {
-    this.isMenuOpen.set(true);
-  }
-
-  closeMenu() {
-    this.isMenuOpen.set(false);
+  toggleMenuShow() {
+    if(this.isMenuOpen()){
+      this.isMenuOpen.set(false);
+    }else {
+      this.isMenuOpen.set(true);
+    }
   }
 
   toggleSubcategories(category: { open: boolean; }) {

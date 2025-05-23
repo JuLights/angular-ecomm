@@ -1,19 +1,19 @@
 import { Routes } from '@angular/router';
+import {ProductDetailsComponent} from './components/product-details/product-details.component';
+import {MarketComponent} from './components/market/market.component';
+import {LoginComponent} from './components/login/login.component';
 
 export const routes: Routes = [
-  /*,
   {
     path: 'login',
-    loadComponent: () =>
-      import('./components/login/login.component').then(
-        (c) => c.LoginComponent
-      ),
-  },*/
+    component: LoginComponent
+  },
+  {
+    path: 'productDetails/:id',
+    component: ProductDetailsComponent
+  },
   {
     path: 'market',
-    loadComponent: () =>
-      import('./components/market/market.component').then(
-        (c) => c.MarketComponent
-      ),
+    component: MarketComponent,
   }
 ];

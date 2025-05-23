@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -8,9 +9,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
+
+  constructor(private router: Router) {}
+
   openLogin() {
     // Handle login modal open
     console.log('Login clicked');
+
+    this.router.navigate(['/login']);
   }
 
   openSignUp() {

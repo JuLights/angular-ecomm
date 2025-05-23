@@ -1,29 +1,32 @@
 ﻿<div class="market-container">
   <!-- FlyOut Menu -->
   <div class="flyout-menu" [class.open]='isMenuOpen()'>
-    <button class="close-btn" (click)="closeMenu()">X</button>
+    <button class="close-btn" (click)="toggleMenuShow()">☰</button>
     <div class="menu-content">
       <h3>Categories</h3>
       <ul class="categories-list">
-        <li *ngFor="let category of categories" (click)="toggleSubcategories(category)">
-          <span>{{ category.name }}</span>
-          <ul *ngIf="category.open">
-            <li *ngFor="let subcategory of category.subcategories">
-              {{ subcategory }}
-            </li>
-          </ul>
-        </li>
+        @for (category of categories; track $index) {
+          <li (click)="toggleSubcategories(category)">
+            <span>{{ category.name }}</span>
+            <ul *ngIf="category.open">
+              @for (subcategory of category.subcategories; track $index) {
+                <li>{{ subcategory }}</li>
+              }
+            </ul>
+          </li>
+        }
       </ul>
     </div>
   </div>
 
   <!-- Main Content (Products and Pagination) -->
   <div class="main-content">
-    <button class="menu-btn" (click)="openMenu()">☰</button>
 
     <!-- Product Grid -->
     <div class="product-grid">
-      <app-item *ngFor="let product of products" [product]="product"></app-item>
+      @for (product of products(); track $index) {
+        <app-item [product]="product"/>
+      }
     </div>
 
     <!-- Pagination -->
