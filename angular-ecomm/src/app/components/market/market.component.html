@@ -5,12 +5,12 @@
     <div class="menu-content">
       <h3>Categories</h3>
       <ul class="categories-list">
-        @for (category of categories; track $index) {
-          <li (click)="toggleSubcategories(category)">
-            <span>{{ category.name }}</span>
-            <ul *ngIf="category.open">
-              @for (subcategory of category.subcategories; track $index) {
-                <li>{{ subcategory }}</li>
+        @for (category of categories(); track $index) {
+          <li (click)="toggleSubcategories()">
+            <span class="red-span">{{category.Name}}</span>
+            <ul *ngIf="isMenuOpen()">
+              @for (subcategory of category.SubCategories; track $index) {
+                <li>{{ subcategory.Name }}</li>
               }
             </ul>
           </li>
