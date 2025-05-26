@@ -4,7 +4,7 @@ import {ItemComponent} from '../item/item.component';
 import { NgIf} from '@angular/common';
 import {ProductApiService} from '../../services/product-api.service';
 import {CategoryServiceService} from '../../services/category-service.service';
-import {ResponseCategory, ResponseSubCategory} from '../../models/category.model';
+import {ResponseCategory} from '../../models/category.model';
 // Assuming a Product model is used
 
 @Component({
@@ -18,6 +18,7 @@ import {ResponseCategory, ResponseSubCategory} from '../../models/category.model
 })
 
 export class MarketComponent {
+
   constructor() {
 
     this.productApiService.getProducts().subscribe((prods)=>{
@@ -28,7 +29,6 @@ export class MarketComponent {
       this.categories.set(categories);
       console.log(categories);
     })
-
 
   }
 
@@ -51,15 +51,15 @@ export class MarketComponent {
   //   { name: 'Home & Kitchen', open: false, subcategories: ['Furniture', 'Appliances', 'Decor'] },
   // ];
 
+
+
   totalPages: number = 5; // Assume a total of 5 pages for pagination
 
   toggleMenuShow() {
     if(this.isMenuOpen()){
       this.isMenuOpen.set(false);
-      this.isCategoryOpen.set(false);
     }else {
       this.isMenuOpen.set(true);
-      this.isCategoryOpen.set(true);
     }
   }
 

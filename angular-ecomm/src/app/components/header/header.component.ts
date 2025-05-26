@@ -7,8 +7,7 @@ import {LoginComponent} from '../login/login.component';
 @Component({
   selector: 'app-header',
   imports: [
-    NgIf,
-    LoginComponent
+    NgIf
   ],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
