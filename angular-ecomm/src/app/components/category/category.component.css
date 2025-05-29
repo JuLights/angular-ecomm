@@ -10,8 +10,10 @@
 
 .categories-list li:hover {
   color: #ff6f61;
+  cursor: pointer;
 }
 
 .categories-list ul {
   padding-left: 20px;
+  cursor: pointer;
 }

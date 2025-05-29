@@ -1,8 +1,8 @@
 ﻿<li (click)="toggleSubcategories()">
-  <span>{{ category()?.Name }}</span>
+  <span>{{ category()?.name }}</span>
   <ul *ngIf="isCategoryOpen()">
-    @for (subcategory of category()?.SubCategories; track $index) {
-      <li>{{ subcategory.Name }}</li>
+    @for (subcategory of category()?.subCategories; track $index) {
+      <li>{{ subcategory.name }}</li>
     }
   </ul>
 </li>

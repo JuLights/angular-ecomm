@@ -1,13 +1,13 @@
 ﻿import {Base} from './base.model';
 
 export interface ResponseCategory extends Base {
-  Name: string;
-  Description: string;
-  SubCategories: ResponseSubCategory[];
+  name: string;
+  description: string;
+  subCategories: ResponseSubCategory[];
 }
 
 export interface ResponseSubCategory extends Base {
-  CategoryId: number;
-  Name: string;
-  Description: string;
+  categoryId: number;
+  name: string;
+  description: string;
 }
