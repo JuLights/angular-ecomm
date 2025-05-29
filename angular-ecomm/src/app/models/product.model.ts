@@ -8,5 +8,5 @@ export interface Product extends Base{
   isDiscounted: boolean;
   discountPercentage: number;
   price: number;
-  images: string[];
+  productImages: string[];
 }

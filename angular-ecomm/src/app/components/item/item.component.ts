@@ -1,4 +1,4 @@
-import {Component, input, Input} from '@angular/core';
+import {Component, input, Input, signal} from '@angular/core';
 import {Product} from '../../models/product.model';
 import { Router } from '@angular/router';
 
@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class ItemComponent {
   product = input<Product>();
+
+  basePath = signal<string>('https://localhost:7060/api/Products/');
 
   constructor(private router: Router) {}
 
