@@ -1,0 +1,17 @@
+﻿.categories-list {
+  list-style: none;
+  padding: 0;
+}
+
+.categories-list li {
+  cursor: pointer;
+  padding: 10px 0;
+}
+
+.categories-list li:hover {
+  color: #ff6f61;
+}
+
+.categories-list ul {
+  padding-left: 20px;
+}

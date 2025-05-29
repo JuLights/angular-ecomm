@@ -1,17 +1,17 @@
 import {Component, inject, signal} from '@angular/core';
 import {Product} from '../../models/product.model';
 import {ItemComponent} from '../item/item.component';
-import { NgIf} from '@angular/common';
 import {ProductApiService} from '../../services/product-api.service';
 import {CategoryServiceService} from '../../services/category-service.service';
 import {ResponseCategory} from '../../models/category.model';
+import {CategoryComponent} from '../category/category.component';
 // Assuming a Product model is used
 
 @Component({
   selector: 'app-market',
   imports: [
     ItemComponent,
-    NgIf
+    CategoryComponent
   ],
   templateUrl: 'market.component.html',
   styleUrls: ['market.component.css'],
@@ -21,7 +21,7 @@ export class MarketComponent {
 
   constructor() {
 
-    this.productApiService.getProducts().subscribe((prods)=>{
+    this.productApiService.getProducts(1,200).subscribe((prods)=>{
       this.products.set(prods);
     });
 
@@ -36,7 +36,6 @@ export class MarketComponent {
   categoryService = inject(CategoryServiceService);
 
   isMenuOpen = signal<boolean>(false);
-  isCategoryOpen= signal<boolean>(false);
 
   currentPage: number = 1;
 
@@ -63,13 +62,13 @@ export class MarketComponent {
     }
   }
 
-  toggleSubcategories() {
-    if(this.isCategoryOpen()){
-      this.isCategoryOpen.set(false);
-    }else {
-      this.isCategoryOpen.set(true);
-    }
-  }
+  // toggleSubcategories() {
+  //   if(this.isCategoryOpen()){
+  //     this.isCategoryOpen.set(false);
+  //   }else {
+  //     this.isCategoryOpen.set(true);
+  //   }
+  // }
 
   goToPage(page: number) {
     if (page >= 1 && page <= this.totalPages) {

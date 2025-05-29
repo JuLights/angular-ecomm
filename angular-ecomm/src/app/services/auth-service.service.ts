@@ -18,7 +18,7 @@ export class AuthServiceService {
    * @returns An Observable that emits an object containing the token and refreshToken.
    */
   signInGet(username: string, password: string): Observable<{ token:string, refreshToken: string }> {
-    var token = this.http.get<{ token:string, refreshToken: string }>(`https://localhost:7000/api/Auth/signin`, {
+    let token = this.http.get<{ token:string, refreshToken: string }>(`https://localhost:7000/api/Auth/signin`, {
       params: {
         username: username,
         password: password

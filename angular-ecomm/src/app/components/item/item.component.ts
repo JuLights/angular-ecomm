@@ -14,7 +14,7 @@ export class ItemComponent {
   constructor(private router: Router) {}
 
   goToProductDetails(){
-    this.router.navigate(['/productDetails', this.product()?.id])
+    this.router.navigate(['/productDetails', this.product()?.i])
   }
 
 }

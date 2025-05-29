@@ -6,14 +6,15 @@
       <h3>Categories</h3>
       <ul class="categories-list">
         @for (category of categories(); track $index) {
-          <li (click)="toggleSubcategories()">
-            <span class="red-span">{{category.Name}}</span>
-            <ul *ngIf="isCategoryOpen()">
-              @for (subcategory of category.SubCategories; track $index) {
-                <li>{{ subcategory.Name }}</li>
-              }
-            </ul>
-          </li>
+<!--          <li (click)="toggleSubcategories()">-->
+<!--            <span class="red-span">{{category.Name}}</span>-->
+<!--            <ul *ngIf="isCategoryOpen()">-->
+<!--              @for (subcategory of category.SubCategories; track $index) {-->
+<!--                <li>{{ subcategory.Name }}</li>-->
+<!--              }-->
+<!--            </ul>-->
+<!--          </li>-->
+          <app-category [category]="category" />
         }
       </ul>
     </div>
